@@ -67,5 +67,5 @@ Access the dashboard at: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 - Deploy on cloud for distributed monitoring.
 
 ## License
-This project is open-source and available under the **Apache Server**.
+This project is open-source and available under the **Apache Server 2.0**.
 
