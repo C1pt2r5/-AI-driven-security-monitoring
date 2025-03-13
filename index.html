@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network Monitor Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .anomaly { background-color: red; color: white; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Network Traffic Logs</h2>
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <th>Source IP</th>
+            <th>Destination IP</th>
+            <th>Protocol</th>
+            <th>Packet Length</th>
+            <th>Status</th>
+        </tr>
+        {% for log in logs %}
+        <tr class="{{ 'anomaly' if log[6] == 1 else '' }}">
+            <td>{{ log[1] }}</td>
+            <td>{{ log[2] }}</td>
+            <td>{{ log[3] }}</td>
+            <td>{{ log[4] }}</td>
+            <td>{{ log[5] }}</td>
+            <td>{{ 'Anomaly' if log[6] == 1 else 'Normal' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
